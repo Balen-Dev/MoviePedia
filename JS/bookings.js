@@ -65,3 +65,9 @@ container.addEventListener("click", e => {
 
 // Initial Count & Total Set
 updateSelectedCount();
+
+// Back to Home Link
+const backToHomepageLink = document.getElementById("back-to-home-link");
+backToHomepageLink.addEventListener("click", () => {
+  window.top.close();
+});
