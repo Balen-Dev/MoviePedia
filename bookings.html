@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2c3e50" />
+    <link rel="icon" href="./Icon/cinema.png" />
+    <meta
+      name="description"
+      content="Get a virtual view of our theatres and book the seat that you desire beforehand!"
+    />
+    <title>Book Theatre Seats Now!</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./CSS/bookings.css" />
+  </head>
+  <body>
+    <!-- Code -->
+    <div class="mega-container">
+      <!-- Movie Options Available-->
+      <div class="movie-container">
+        <label>Pick a movie:</label>
+        <select id="movie">
+          <option value="10">Avengers: Endgame ($10)</option>
+          <option value="12">Joker ($12)</option>
+          <option value="8">Toy Story 4 ($8)</option>
+          <option value="9">The Lion King ($9)</option>
+        </select>
+      </div>
+      <!-- Movie Options Available-->
+
+      <!-- Seat Availability Showcase -->
+      <ul class="showcase">
+        <li>
+          <div class="seat"></div>
+          <small>Available</small>
+        </li>
+        <li>
+          <div class="seat selected"></div>
+          <small>Selected</small>
+        </li>
+        <li>
+          <div class="seat occupied"></div>
+          <small>Occupied</small>
+        </li>
+      </ul>
+      <!-- Seat Availability Showcase -->
+
+      <!-- Cinema Screen + Seat Rows -->
+      <div class="container">
+        <div class="screen"></div>
+
+        <div class="row">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+        </div>
+        <div class="row">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat occupied"></div>
+          <div class="seat occupied"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+        </div>
+        <div class="row">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat occupied"></div>
+          <div class="seat occupied"></div>
+        </div>
+        <div class="row">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+        </div>
+        <div class="row">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat occupied"></div>
+          <div class="seat occupied"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+        </div>
+        <div class="row">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat occupied"></div>
+          <div class="seat occupied"></div>
+          <div class="seat occupied"></div>
+          <div class="seat"></div>
+        </div>
+      </div>
+      <!-- Cinema Screen + Seat Rows -->
+
+      <!-- Total Seats Selected + Price -->
+      <p class="text">
+        You have selected <span id="count">0</span> seats for a price of $<span
+          id="total"
+          >0</span
+        >
+      </p>
+    </div>
+    <!-- Total Seats Selected + Price -->
+
+    <!-- Back to Home Link -->
+    <a id="back-to-home-link" href="./index.html"
+      ><small>Back to Homepage</small></a
+    >
+    <!-- Back to Home Link -->
+    <!-- Code -->
+    <!-- JS -->
+    <script src="./JS/bookings.js"></script>
+  </body>
+</html>
