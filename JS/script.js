@@ -124,7 +124,7 @@ setGenre();
 
 // Function for Generating Genre Tags
 function setGenre() {
-  tagsEl.innerHTML = "";
+  tagsEl.innerHTML = ``;
 
   genres.forEach(genre => {
     const t = document.createElement("div");
@@ -227,7 +227,7 @@ async function getMovies(url) {
   const data = await res.json();
 
   if (data.results == 0) {
-    main.innerHTML = `<h1 id="no-results-found"> No Results Found !</h1>`
+    main.innerHTML = `<h1 id="no-results-found"> <img src="../Icon/error.png" alt=""/> No Results Found !</h1>`
   }
   else {
     showMovies(data.results);
