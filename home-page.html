@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2c3e50" />
+    <meta
+      name="description"
+      content="Get overviews and general information on every movie from latest releases to older ones!"
+    />
+    <link rel="icon" href="./Icon/icon.png" />
+    <link rel="stylesheet" href="./Bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="./CSS/home-page.css" />
+    <title>MoviePedia</title>
+  </head>
+  <body>
+    <!-- Navbar Starts Here-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./home-page.html">
+          <img id="nav-logo" src="./Icon/icon.png" alt="Film Icon" />
+          MoviePedia</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="./home-page.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#credits"
+                >Credits</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Filter
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a id="sort-by-votes" class="dropdown-item" href="#"
+                    >Rating (All Time)</a
+                  >
+                </li>
+                <li>
+                  <a id="sort-by-revenue" class="dropdown-item" href="#"
+                    >Revenue (All Time)</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a id="sort-by-popularity" class="dropdown-item" href="#"
+                    >Popularity (Default)</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./bookings.html" target="_blank"
+                >Book Theatre Seats</a
+              >
+            </li>
+          </ul>
+          <form id="form" class="d-flex">
+            <input
+              type="text"
+              placeholder="Search..."
+              autocomplete="off"
+              id="search"
+              class="search"
+            />
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar Ends Here-->
+
+    <!-- Credits Modal Starts Here -->
+    <div class="modal" id="credits">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Credits</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              The data that is displayed on this websited is fetched from the
+              <a
+                href="https://www.themoviedb.org/documentation/api"
+                target="_blank"
+                >TMDB API</a
+              >
+              that helps developers to get and manipulate data from a huge
+              database of movies.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <a
+              href="https://www.themoviedb.org/"
+              target="_blank"
+              class="btn btn-primary"
+              >Visit TMDB</a
+            >
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Credits Modal End Here -->
+
+    <!-- Notification Popup Starts Here-->
+    <div class="toastPositioner">
+      <div
+        class="toast show"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <strong class="me-auto">Balen Kawa</strong>
+          <small>30 Seconds ago</small>
+          <button
+            type="button"
+            class="btn-close ms-2 mb-1"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          >
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="toast-body">
+          Welcome! Search for any movie in the search box to get its trailer and
+          overview. You can also filter by either genres or other filters
+          present on the navigaation bar!
+        </div>
+      </div>
+    </div>
+    <!-- Notification Popup Ends Here-->
+
+    <!-- Body of Our Website -->
+    <div id="tags"></div>
+    <span id="scroll-back-up"></span>
+
+    <!-- Trailer Overlay Starts Here -->
+    <div id="trailer-overlay" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
+      <div class="overlay-content" id="overlay-content"></div>
+
+      <a href="javascript:void(0)" class="arrow left-arrow" id="left-arrow"
+        >&#8656;</a
+      >
+      <a href="javascript:void(0)" class="arrow right-arrow" id="right-arrow"
+        >&#8658;</a
+      >
+    </div>
+    <!-- Trailer Overlay Ends Here -->
+
+    <main id="main"></main>
+    <!-- Body of Our Website -->
+
+    <!-- Paagination Starts Here -->
+    <div class="pagination">
+      <div class="page" id="prev">&nbsp; Prev &nbsp;</div>
+      <div class="current" id="current">1</div>
+      <div class="page" id="next">Next</div>
+    </div>
+    <!-- Paagination Ends Here -->
+
+    <!-- Footer Starts Here -->
+    <footer class="bg-primary text-center text-white">
+      <div class="text-center p-3">
+        2021 Copyright ©
+        <a class="text-white" href="#">Balen Kawa</a>
+      </div>
+    </footer>
+    <!-- Footer Ends Here -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./JS/script.js"></script>
+  </body>
+</html>

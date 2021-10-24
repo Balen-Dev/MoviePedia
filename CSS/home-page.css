@@ -1,0 +1,403 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+/* Video Carousel Overlay */
+/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(0, 0, 0); /* Black fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 10%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+.embed.hide {
+  display: none;
+}
+
+.embed.show {
+  display: inline-block;
+}
+/* Arrow Sliders Styling */
+.arrow {
+  position: absolute;
+}
+
+.arrow.left-arrow {
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+}
+
+.arrow.right-arrow {
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+}
+/* End of Arrow Sliders Styling */
+
+@media (max-width: 769px) {
+  .embed {
+    width: 50%;
+  }
+}
+
+/* End of Video Carousel Overlay */
+
+/* Toast Styling */
+.toast.show {
+  position: fixed;
+  z-index: 1000000;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 769px) {
+  .toast.show {
+    top: 5rem;
+  }
+}
+.toastPositioner {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Toast Styling */
+
+/* Navbar Styling */
+.search {
+  background-color: transparent;
+  border: 1px solid #f1f1f1;
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.search:focus {
+  outline: none;
+  background-color: transparent;
+}
+
+.search:hover {
+  transform: scale(0.98);
+}
+
+.search::placeholder {
+  color: #f1f1f1;
+}
+
+.navbar-nav li {
+  margin: 2px 15px;
+}
+
+.navbar-brand {
+  transition: transform 0.2s ease;
+  margin-right: 30px;
+  font-weight: 590;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.06);
+}
+
+#nav-logo {
+  height: 45px;
+}
+/* End of Navbar Styling */
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Tags Styling */
+#tags {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.tag {
+  color: #fff;
+  padding: 10px 20px;
+  background-color: #ffa500;
+  border-radius: 4px 20px;
+  margin: 5px;
+  display: inline-block;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  transform: scale(0.94);
+}
+
+.tag:focus {
+  transform: scale(0.94);
+}
+
+.tag.highlight {
+  background-color: #343a40;
+}
+/* End of Tags Styling */
+
+/* Cards Styling */
+.card {
+  width: 300px;
+  margin: 1rem;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  border-radius: 25px;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card-info {
+  color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 1rem;
+  letter-spacing: 0.5px;
+}
+
+.card-info h3 {
+  margin-top: 0;
+}
+
+#genre {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: #999;
+}
+
+#release-date {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: #999;
+}
+
+.movie-info span {
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 20px 4px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.movie-info span.green {
+  color: #90ee90;
+}
+
+.movie-info span.orange {
+  color: #ffa500;
+}
+
+.movie-info span.red {
+  color: #ff0000;
+}
+
+.overview {
+  background-color: #fff;
+  opacity: 0.9;
+  padding: 2rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 100%;
+  transform: translateY(101%);
+  transition: transform 0.3s ease-in;
+}
+
+.movie:hover .overview {
+  transform: translateY(0);
+}
+
+#overview {
+  color: #2a9c80;
+  font-weight: 550;
+  text-decoration: underline;
+  cursor: default;
+}
+
+.btn-primary {
+  display: block;
+  margin: 10px;
+}
+
+#movie-rating {
+  text-align: center;
+  display: block;
+  width: 2.8rem;
+  margin-top: 10px;
+}
+
+#movie-genre {
+  display: block;
+  font-size: 16px;
+  color: #999;
+}
+
+.trailer {
+  border-radius: 50px;
+  margin-top: 5px;
+}
+/* End of Cards Styling */
+
+/* No Results Found Title */
+
+#no-results-found {
+  font-weight: 800;
+  padding: 10px;
+  margin: 10px;
+  color: #8d1010d3;
+}
+/* End of No Results Found Title */
+
+/* Movie Title in Overlay */
+.movie-title-in-overlay {
+  color: #f1f1f1;
+  font-style: italic;
+}
+/* End of Movie Title in Overlay */
+
+/* Overlay Videos Indicators */
+.indicators {
+  margin-top: 10px;
+}
+
+.indicators .indicator {
+  padding: 10px 15px;
+  width: 30px;
+  height: 30px;
+  line-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  border: 5px solid #2c3e50;
+  color: #f1f1f1;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 30px 10px;
+}
+
+.indicators .indicator.active {
+  border-color: #ffa500;
+}
+/* End of Overlay Videos Indicators */
+
+/* Pagination Styling */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 30px;
+}
+
+.page {
+  padding: 10px;
+  cursor: pointer;
+  border: 3px solid #2c3e50;
+}
+
+#prev {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding-left: 3.5px;
+  padding-right: 3.5px;
+}
+
+#next {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.page.disabledd {
+  cursor: not-allowed;
+  color: #8f8f8fda;
+}
+
+.current {
+  padding: 8px 10px;
+  border: 2px solid #2c3e50;
+  background-color: #2c3e50;
+  color: #f1f1f1;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: default;
+}
+/* End of Pagination Styling */ ;
